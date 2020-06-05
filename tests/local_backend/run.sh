@@ -41,6 +41,7 @@ export GO_FAILPOINTS='github.com/pingcap/tidb-lightning/lightning/backend/local/
 run_lightning --backend local --enable-checkpoint=1 --log-file "$TEST_DIR/lightning-checkpoint-engines.log" --config "tests/$TEST_NAME/config.toml"
 
 run_sql 'SELECT count(*), sum(c) FROM cpeng.a'
+
 check_contains 'count(*): 4'
 check_contains 'sum(c): 10'
 
